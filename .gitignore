@@ -1,0 +1,10 @@
+bin/
+target/
+
+# Eclipse
+.classpath
+.project
+.settings
+
+# Other
+tmp/
