@@ -1,0 +1,14 @@
+/subsystem=security/security-domain=digest:add(cache-type=default)
+
+/subsystem=security/security-domain=digest/authentication=classic:add\
+(login-modules=[{"code"=>"UsersRoles","flag"=>"required", "module-options"=>[\
+("usersProperties"=>"${jboss.server.config.dir}/application-users.properties"),\
+("rolesProperties"=>"${jboss.server.config.dir}/application-roles.properties"),\
+("hashAlgorithm"=>"MD5"),\
+("hashEncoding"=>"rfc2617"),\
+("hashUserPassword"=>"false"),\
+("hashStorePassword"=>"true"),\
+("passwordIsA1Hash"=>"true"),\
+("storeDigestCallback"=>"org.jboss.security.auth.callback.RFC2617Digest")]}])
+
+:reload

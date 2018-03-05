@@ -36,3 +36,16 @@ The server also has to contain this security domain:
 </security-domain>
 ```
 
+You can also use CLI script for that:
+
+```
+$JBOSS_HOME/jboss-cli.sh --connect --file=$PATH_TO_THIS_REPO/addDigestSecurityDomain.cli
+```
+
+Create and deploy war
+
+```
+cd $PATH_TO_THIS_REPO 
+mvn clean install
+$JBOSS_HOME/jboss-cli.sh --connect --commands=deploy\ $PATH_TO_THIS_REPO/target/dv-test-ws-digest.war
+```
