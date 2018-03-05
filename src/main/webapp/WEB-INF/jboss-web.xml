@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
  
 <jboss-web>
-	<context-root>digest</context-root>
+	<context-root>web-app</context-root>
     <security-domain>java:/jaas/digest</security-domain>
 </jboss-web>

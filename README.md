@@ -5,16 +5,16 @@ Application contains six endpoints:
 
 These are unsecure:
 
-* rest/unsecured/json
-* rest/unsecured/xml
-* soap/unsecured?wsdl
+* rest/unsecured/json (e.g. http://localhost:8080/web-app/rest/unsecured/json)
+* rest/unsecured/xml (e.g. http://localhost:8080/web-app/rest/unsecured/xml)
+* soap/unsecured?wsdl (e.g. http://localhost:8080/web-app/soap/unsecured?wsdl)
 
 
 These are secure with digest auth. Only users who are in the *user* role and who are in the *ApplicationRealm relm* on the server have an access.
 
-* rest/secure/json
-* rest/secure/xml
-* soap/secure?wsdl
+* rest/secure/json (e.g. http://localhost:8080/web-app/rest/secure/json)
+* rest/secure/xml (e.g. http://localhost:8080/web-app/rest/secure/xml)
+* soap/secure?wsdl (e.g. http://localhost:8080/web-app/soap/secure?wsdl)
 
 
 The server also has to contain this security domain:
