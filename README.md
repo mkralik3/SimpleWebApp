@@ -10,7 +10,7 @@ These are unsecure:
 * soap/unsecured?wsdl
 
 
-These are secure with basic auth. Only users who are in the *user* role on the server have an access.
+These are secure with digest auth. Only users who are in the *user* role and who are in the *ApplicationRealm relm* on the server have an access.
 
 * rest/secure/json
 * rest/secure/xml
@@ -20,10 +20,17 @@ These are secure with basic auth. Only users who are in the *user* role on the s
 The server also has to contain this security domain:
 
 ```
-<security-domain name="configAppSecurityDomain" cache-type="default">
+<security-domain name="digest" cache-type="default">
         <authentication>
-                <login-module code="RealmDirect" flag="required">
-                    <module-option name="password-stacking" value="useFirstPass"/>
+                <login-module code="UsersRoles" flag="required">
+                    <module-option name="usersProperties" value="${jboss.server.config.dir}/application-users.properties"/>
+                    <module-option name="rolesProperties" value="${jboss.server.config.dir}/application-roles.properties"/>
+                    <module-option name="hashAlgorithm" value="MD5"/>
+                    <module-option name="hashEncoding" value="rfc2617"/>
+                    <module-option name="hashUserPassword" value="false"/>
+                    <module-option name="hashStorePassword" value="true"/>
+                    <module-option name="passwordIsA1Hash" value="true"/>
+                    <module-option name="storeDigestCallback" value="org.jboss.security.auth.callback.RFC2617Digest"/>
                 </login-module>
         </authentication>
 </security-domain>
